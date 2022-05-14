@@ -1,37 +1,88 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <?php
+        $pers = $_GET['perso'] ?? 'costy';
+        $image = 'img'. DIRECTORY_SEPARATOR . $pers . ".jpg";
 
-You can use the [editor on GitHub](https://github.com/Saynbemorinbewang2/saynbemoringbewang2.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+        $naiss_costy = 1997; 
+        $naiss_solo = 2022;
+        $naiss_soup = 2001;
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+        $today = new DateTime();
 
-### Markdown
+        $ans_costy = $today->format('Y') - $naiss_costy;
+        $ans_solo = $today->format('Y') - $naiss_solo;
+        $ans_soup = $today->format('Y') - $naiss_soup;
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+        $bio_costy_1 = "Née le 06 mars 1997 à Ngaoundéré. COSTA SENGUEL a obtenu son premier diplôme cep (Certificat d’étude Primaire) a l’école SAINT joseph de Bamyanga Marza en 2010.";
+        $bio_costy_2 = "Il poursuit ces études au lycée de Beka Horere ou sort en 2014 nanti de son BEPC (brevet d’étude du premier cycle) et continu au lycée classique ou il obtiendra successivement son Probatoire et son baccalauréat série TI en 2018 et 2019. Il continue ces études actuellement en filière informatique a l’université de Ngaoundéré.";
 
-```markdown
-Syntax highlighted code block
+        $bio_solo_1 = "Né le 04 octobre 1999 a Ngaoundere, <br>MO RINGBE SAYNBE a reçu son releve de note Licence 2 en  Technologie de l’information de l’universite de ngaoundere et etudie actuellement en licence 3 dans la meme université.";
+        $bio_solo_2 = " Un ardent défenseur du travaille acharné,  il fait participer ses camarades à des projets prometeur. Ses intérêts académiques se concentrent sur l’elaboration d’un logiciel revolutionnaire de simplification des titres foncier au Cameroun , et ses projets en cours comprennent l’elaboration d’un logiciel d’archivage et l’apprentisage d’un logiciel de statistique. Fort de caractère avec une voix imposante, Blagueur très souvent avec ses amis et camarades, il est l’exemple parfait d’un mélange de rire et de travaille. Ses loisirs se résume au Tennis, Football à la télé , jeu vidéo et quelque fois des apéritifs avec ces amis intime. ";
 
-# Header 1
-## Header 2
-### Header 3
+        $bio_soup_1 = "Né le 02 janvier 2001 a la maternité du Centre de santé intégré de Bagodo, <br>SOUAPIEBE EDMOND-PROSPER a fait ses études maternelles de 2004-2006 à l'école maternelle de Galim.";
+        $bio_soup_2 = "Ses études primaires ont été couronées par le CEP en 2012 toujours dans la meme ville,
+        il continue ses études secondaires tour a tour au Lycée bilingue de Galim où il obtient son BEPC, au Lycée classique de Ngaoundéré où il obtient tour à tour son diplome de PROBATOIRE et son BACCALAUREAT respectivement en 2018 et en 2019.
+        Il poursuit ses études à l'université de Ngaoundéré en informatique et actuellement est en licence 3 dans la meme université.";
 
-- Bulleted
-- List
+        $error = "Cet etudiant n'existe pas dans nos archives...";
 
-1. Numbered
-2. List
+    ?>    
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
+    <header>
+        <h1 align="center">UNIVERSITE DE NGAOUNDERE</h1>
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+        <nav>
+            <ul id="">
+                <li><a href="index.php?perso=costy"><p>19B369FS</p></a></li>
+                <li><a href="index.php?perso=solo"><p>19B059FS</p></a></li>
+                <li><a href="index.php?perso=soup"><p>19B057FS</p></a></li>
+            </ul>
+        </nav>
+    </header>
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Saynbemorinbewang2/saynbemoringbewang2.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+    <div class="container">
+        <div class="part1">
 
-### Support or Contact
+            <img src="<?=$image?>" alt="<?=$pers?>">
+            <div class="bio1">
+                <?php 
+                    if($pers == 'costy')
+                        echo $bio_costy_1;
+                    elseif($pers == 'solo')
+                        echo $bio_solo_1;
+                    elseif($pers == 'soup')
+                        echo $bio_soup_1;
+                    else
+                        echo $error;
+                 ?>
+            </div>
+            <div class="bio2">
+                <?php 
+                    if($pers == 'costy')
+                        echo $bio_costy_2;
+                    elseif($pers == 'solo')
+                        echo $bio_solo_2;
+                    elseif($pers == 'soup')
+                        echo $bio_soup_2;
+                 ?>
+            </div>
+        </div>    
+    </div>
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+    <div class="div-gauche">
+
+    </div>
+
+    <footer>
+    </footer>
+
+</body>
+</html>
